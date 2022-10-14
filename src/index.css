@@ -1,0 +1,63 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: #f8fafc; /* slate-50 */
+    color: #111827; /* gray-900 */
+  }
+
+  .dark body {
+    background-color: #1e293b; /* slate-800 */
+    color: #fff;
+  }
+
+  #all-container header nav,
+  #all-container footer {
+    background-color: transparent;
+  }
+
+  #all-container footer ul > li {
+    margin: 0 0.5rem 0 0.5rem;
+  }
+
+  code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+  }
+}
+
+/* some overrides */
+
+.indiana-scroll-container {
+  border-radius: 0; /* remove border radius from flowbite carousel */
+}
+
+.product-card img {
+  padding: 0.625rem;
+}
+
+/* Product Card CSS */
+
+.product-container {
+  display: grid;
+  grid-gap: calc(20px / 2);
+  grid-template-columns: repeat(5, calc(30% - 20px * 2));
+  /* grid-template-columns: 10px repeat(10, calc(50% - 20px * 2)) 10px; */
+  grid-template-rows: 1fr;
+  overflow-x: scroll;
+  scroll-snap-type: x proximity;
+  padding-bottom: calc(0.75 * 20px);
+  margin-bottom: calc(-0.25 * 20px);
+}
+
+.product-card {
+  scroll-snap-align: center;
+  padding: calc(20px / 2 * 1.5);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

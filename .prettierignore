@@ -1,0 +1,17 @@
+**/coverage
+**/.next
+**/out
+*.md
+*.json
+**/node_modules
+**/.cache
+**/public
+**/.babelrc
+**/.eslintrc.json
+**/.prettierrc.json
+**/.storybook
+**/app.json
+**/package.json
+**/README.md
+**/bin
+**/*.config.*

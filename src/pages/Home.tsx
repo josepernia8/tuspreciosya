@@ -12,7 +12,6 @@ import {Categories} from "../types"
 const Home: React.FC = () => {
   const [category, setCategory] = useState(Categories.DAIRY)
   const [term, setTerm] = useState("")
-  console.log(term)
 
   return (
     <>

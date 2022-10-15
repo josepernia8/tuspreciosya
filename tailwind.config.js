@@ -5,35 +5,25 @@ module.exports = {
   darkMode: "class",
   content: ["./src/**/*.{js,jsx,ts,tsx}", "node_modules/flowbite-react/**/*.{js,jsx,ts,tsx}"],
   theme: {
-    fontFamily: {
-      sans: ["Roboto", "sans-serif"],
-      serif: ["Merriweather", "serif"]
-    },
-    colors: {
-      broad: "#059669" /* bg-emerald-600 */
-    },
-    aspectRatio: {
-      '4/5': '4 / 5',
+    extend: {
+      fontFamily: {
+        sans: ["Roboto", "sans-serif"],
+        serif: ["Merriweather", "serif"],
+        lobster: ['Lobster'],
+      },
+      screens: {
+        'xl': '1366px',
+      },
+      colors: {
+        broad: "#10b981" /* emerald-500 */,
+        "list-bg": "#6b7280" /* gray-500 */,
+        "rai-blue": "#42CFE9",
+        "rai-yellow": "#FFDD0B"
+      },
+      aspectRatio: {
+        '4/5': '4 / 5',
+      }
     }
   },
-  plugins: [
-    require("flowbite/plugin"),
-    require("tailwindcss-theme-swapper")({
-      themes: [
-        {
-          name: "base",
-          selectors: [":root"],
-          theme: {
-            colors: {
-              primary: "#4338ca" /* indigo-700 */,
-              secondary: "",
-              terciary: "#8080ff",
-              backdrop: "#f8fafc" /* bg-slate-50 */,
-              inverse: "#1e293b" /* slate-800 */
-            }
-          }
-        }
-      ]
-    })
-  ]
+  plugins: [require("flowbite/plugin")]
 }

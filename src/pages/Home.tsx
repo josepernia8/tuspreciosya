@@ -1,74 +1,72 @@
 import {Card, Carousel} from "flowbite-react"
-import {CgSearch} from "react-icons/cg"
-import avocado from "../assets/avocado.png"
-import category2 from "../assets/category_dairy.png"
-import category1 from "../assets/category_meat.png"
-import category3 from "../assets/category_milk.png"
+import {useState} from "react"
+import ReactCSSTransitionGroup from "react-addons-css-transition-group"
+import {CgChevronLeftO, CgChevronRightO, CgSearch} from "react-icons/cg"
+import {categories, products, testimonies} from "../assets/fixtures"
 import banner1 from "../assets/home_banner_1.png"
 import banner2 from "../assets/home_banner_2.png"
+import banner3 from "../assets/home_banner_3.png"
 import newsletter from "../assets/newsletter.jpg"
-
-const categories = [
-  {
-    id: 1,
-    label: "Viveres",
-    image: category1
-  },
-  {
-    id: 2,
-    label: "Frutas/Vegetales",
-    image: category2
-  },
-  {
-    id: 3,
-    label: "Lacteos",
-    image: category3
-  },
-  {
-    id: 4,
-    label: "Carnicería",
-    image: category1
-  },
-  {
-    id: 5,
-    label: "Pescadería",
-    image: category2
-  },
-  {
-    id: 6,
-    label: "Charcutería",
-    image: category3
-  }
-]
+import {Categories} from "../types"
 
 const Home: React.FC = () => {
+  const [category, setCategory] = useState(Categories.DAIRY)
+  const [term, setTerm] = useState("")
+  console.log(term)
+
   return (
     <>
       <section id="home-banner">
         <div className="h-56 sm:h-64 xl:h-80 2xl:h-96">
-          <Carousel slideInterval={5000}>
-            <img src={banner1} alt="..." className="bg-blue-300" />
-            <img src={banner2} alt="..." className="bg-teal-500" />
+          <Carousel
+            slideInterval={4000}
+            leftControl={<CgChevronLeftO className="h-10 w-10 text-gray-800" />}
+            rightControl={<CgChevronRightO className="h-10 w-10 text-gray-800" />}
+          >
+            <img src={banner1} alt="carousel image 1" className="bg-[#48B5FF] h-full object-cover md:object-fill" />
+            <img src={banner2} alt="carousel image 2" className="h-full object-cover md:object-fill" />
+            <img src={banner3} alt="carousel image 3" className="h-full object-cover md:object-none" />
           </Carousel>
         </div>
       </section>
 
-      <main className="mt-10 mx-4 md:mx-6">
-        <section id="product-categories" className="grid grid-cols-8 gap-4">
-          <div></div>
+      <main className="mb-8 mt-2 md:mt-10 mx-4 md:mx-6">
+        {/* Product Categories */}
+        <section
+          id="product-categories"
+          className="category-container grid grid-cols-3 md:grid-cols-6 xl:grid-cols-8 gap-4 select-none"
+        >
+          <div className="hidden xl:block"></div>
           {categories.map(({id, label, image}) => (
-            <button key={id} className="col-span-1 border-2 rounded grid" type="button">
-              <span>{label}</span>
-              <img src={image} alt={label} className="p-2 aspect-4/5" />
+            <button
+              key={id}
+              className={`category-button md:col-span-1 border-4 rounded grid shadow-md ${
+                id === category ? "border-blue-500" : ""
+              }`}
+              type="button"
+              onClick={() => setCategory(id)}
+            >
+              <span
+                className="z-10 text-white font-semibold h-full leading-4"
+                style={{gridRow: 1, gridColumn: 1, background: "rgba(0, 0, 0, .3)"}}
+              >
+                {label}
+              </span>
+              <img
+                src={image}
+                alt={label}
+                className="aspect-square min-h-[100px]"
+                style={{gridRow: 1, gridColumn: 1}}
+              />
             </button>
           ))}
         </section>
 
-        <div className="w-screen h-6 bg-broad -ml-4 md:-ml-6 mt-3"></div>
+        <hr className="w-full my-3"></hr>
 
-        <section className="grid grid-cols-12 gap-4 mt-3 mb-10">
+        <section className="grid grid-cols-12 gap-4 mb-10">
           {/* Search Bar */}
-          <form className="col-span-6 col-start-6">
+          <div className="col-span-full md:col-span-6 md:col-start-4">
             <div className="relative">
               <div className="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
                 <CgSearch />
@@ -78,51 +76,60 @@ const Home: React.FC = () => {
                 id="search-products"
                 className="block p-4 pl-10 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500"
                 placeholder="Busca un producto..."
+                onChange={(e) => setTerm(e.target.value)}
               />
             </div>
-          </form>
-
-          {/* Testimonial */}
-          <article className="col-span-2">
-            <Card>
-              <div className="flex justify-start">Testimonios</div>
-              <div className="flex flex-col items-center">
-                <img
-                  className="mb-3 h-24 w-24 rounded-full shadow-lg"
-                  src="https://flowbite.com/docs/images/people/profile-picture-3.jpg"
-                  alt="testimonial image"
-                />
-                <h5 className="mb-1 text-xl font-medium text-gray-900">María Perez</h5>
-                <p className="mt-4 flex">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                  dolore magna aliqua.
-                </p>
-              </div>
-            </Card>
-          </article>
+          </div>
 
           {/* Product Cards */}
-          <div className="product-container col-span-10">
-            {Array(10)
-              .fill(1)
-              .map((n, idx) => (
-                <div key={idx} className="product-card divide-y">
-                  <Card imgSrc={avocado} imgAlt="product">
-                    <div className="flex flex-col items-start border-t pt-2">
-                      <p>
-                        Gama: <span className="bg-green-500 rounded p-1 text-white">1.32$</span>
-                      </p>
-                      <p>Plaza: 1.32$</p>
-                      <p>Forum: 1.32$</p>
+          <ReactCSSTransitionGroup
+            className="col-span-full grid grid-cols-4 xl:grid-cols-8 gap-4 min-h-[200px]"
+            transitionName="fade"
+            transitionEnterTimeout={500}
+            transitionLeaveTimeout={300}
+          >
+            {products
+              .filter(({cat, label}) => category === cat && (cat.includes(term) || label.includes(term) || term === ""))
+              .map(({id, image, label, prices}) => (
+                <div key={id} className="divide-y col-span-2 md:col-span-1">
+                  <Card imgSrc={image} imgAlt={label}>
+                    <div className="flex flex-col items-start border-t pt-2 tracking-wide">
+                      {prices.map(({type, value}) => (
+                        <p key={type}>
+                          <span className={`${type === "cm" ? "uppercase" : "capitalize"}`}>{type}:</span>{" "}
+                          <span className="tracking-wider">#{value}</span>
+                        </p>
+                      ))}
                     </div>
                   </Card>
                 </div>
               ))}
-          </div>
+          </ReactCSSTransitionGroup>
         </section>
 
-        <section id="newsletter" className="w-screen -ml-4 md:-ml-6">
-          <img src={newsletter} alt="newsletter" className="w-full h-64" />
+        <hr className="w-full my-3"></hr>
+
+        {/* Testimonial & Newsletter */}
+        <section id="newsletter-testimonial" className="w-full grid grid-cols-4 auto-rows-[400px] gap-4">
+          <div className="col-span-full lg:col-span-1">
+            <p className="text-lg underline decoration-wavy decoration-broad">Testimonios</p>
+            <Carousel>
+              {testimonies.map(({id, name, testimony}) => (
+                <Card key={id}>
+                  <div className="flex flex-col items-center">
+                    <img
+                      className="mb-3 h-24 w-24 rounded-full shadow-lg"
+                      src={`https://flowbite.com/docs/images/people/profile-picture-${id}.jpg`}
+                      alt="testimonial image"
+                    />
+                    <h5 className="mb-1 text-xl font-medium text-gray-900">{name}</h5>
+                    <p className="mt-4 flex">{testimony}</p>
+                  </div>
+                </Card>
+              ))}
+            </Carousel>
+          </div>
+          <img src={newsletter} alt="newsletter" className="col-span-full lg:col-span-3 w-full h-full rounded" />
         </section>
       </main>
     </>

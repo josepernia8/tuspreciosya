@@ -13,9 +13,9 @@ const About: React.FC = () => (
           PageMaker including versions of Lorem Ipsum.
         </p>
         <p>
-          If you need to reach out please{" "}
+          Si necesitas contactarnos as click{" "}
           <Link to="/contact" className="underline">
-            Contact Us
+            aqui
           </Link>
         </p>
       </section>

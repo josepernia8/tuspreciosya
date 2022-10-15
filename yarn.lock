@@ -1460,6 +1460,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@babel/runtime@npm:^7.1.2":
+  version: 7.19.4
+  resolution: "@babel/runtime@npm:7.19.4"
+  dependencies:
+    regenerator-runtime: ^0.13.4
+  checksum: 66b7e3c13e9ee1d2c9397ea89144f29a875edee266a0eb2d9971be51b32fdbafc85808c7a45e011e6681899bb804b4e2ee2aed6dc07108dbbd6b11b6cc2afba6
+  languageName: node
+  linkType: hard
+
 "@babel/runtime@npm:^7.10.2, @babel/runtime@npm:^7.11.2, @babel/runtime@npm:^7.12.5, @babel/runtime@npm:^7.16.3, @babel/runtime@npm:^7.18.9, @babel/runtime@npm:^7.8.4, @babel/runtime@npm:^7.9.2":
   version: 7.19.0
   resolution: "@babel/runtime@npm:7.19.0"
@@ -3081,6 +3090,25 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/react-addons-css-transition-group@npm:^15.0.7":
+  version: 15.0.7
+  resolution: "@types/react-addons-css-transition-group@npm:15.0.7"
+  dependencies:
+    "@types/react": ^15
+    "@types/react-addons-transition-group": "*"
+  checksum: 62a492f54913551774560966638335a9a61db3838cfede39ec91fa66f6f63460b3aae4fc62c09013c759e087e4bd07cd8ae8cf6b2c8baf93a1f896c67ba5e647
+  languageName: node
+  linkType: hard
+
+"@types/react-addons-transition-group@npm:*":
+  version: 15.0.7
+  resolution: "@types/react-addons-transition-group@npm:15.0.7"
+  dependencies:
+    "@types/react": ^15
+  checksum: 0d3a2cef73ead5e5c27c9ffcd8eab74e411ada158d95a80f800565161d92aa8d78bcf90caff4c5370a28e39f2453afae90a027a751222847df1a91277be2f269
+  languageName: node
+  linkType: hard
+
 "@types/react-dom@npm:^18.0.0, @types/react-dom@npm:^18.0.6":
   version: 18.0.6
   resolution: "@types/react-dom@npm:18.0.6"
@@ -3119,6 +3147,13 @@ __metadata:
     "@types/scheduler": "*"
     csstype: ^3.0.2
   checksum: f67f5b16efd89e237bf0e40d133218c398cf2a2f81166ce1e9fa32d0df6b869106740983396c51df9708a1b79b2a9d725eda1230cc3064c92d86d9ea6a4b714c
+  languageName: node
+  linkType: hard
+
+"@types/react@npm:^15":
+  version: 15.7.10
+  resolution: "@types/react@npm:15.7.10"
+  checksum: 095994000d47dfd058a798407ec365948ecdc4f2052d657f8e15bec3c33610291653c61f8212881b0043212f301aa185d13b641424bb6dc650fca4f39e6c9aa3
   languageName: node
   linkType: hard
 
@@ -4650,6 +4685,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"chain-function@npm:^1.0.0":
+  version: 1.0.1
+  resolution: "chain-function@npm:1.0.1"
+  checksum: 4394113afe36bab29a28144da7af5657bc5c34722bb2fb65f80497cf2d96961094c087144e870b1ffadd5574356d95599265189179d43dadfd024099955b5b84
+  languageName: node
+  linkType: hard
+
 "chalk@npm:4.1.1":
   version: 4.1.1
   resolution: "chalk@npm:4.1.1"
@@ -5820,6 +5862,15 @@ __metadata:
   dependencies:
     utila: ~0.4
   checksum: ea52fe303f5392e48dea563abef0e6fb3a478b8dbe3c599e99bb5d53981c6c38fc4944e56bb92a8ead6bb989d10b7914722ae11febbd2fd0910e33b9fc4aaa77
+  languageName: node
+  linkType: hard
+
+"dom-helpers@npm:^3.2.0":
+  version: 3.4.0
+  resolution: "dom-helpers@npm:3.4.0"
+  dependencies:
+    "@babel/runtime": ^7.1.2
+  checksum: 58d9f1c4a96daf77eddc63ae1236b826e1cddd6db66bbf39b18d7e21896d99365b376593352d52a60969d67fa4a8dbef26adc1439fa2c1b355efa37cacbaf637
   languageName: node
   linkType: hard
 
@@ -9382,7 +9433,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"loose-envify@npm:^1.1.0, loose-envify@npm:^1.4.0":
+"loose-envify@npm:^1.0.0, loose-envify@npm:^1.1.0, loose-envify@npm:^1.3.1, loose-envify@npm:^1.4.0":
   version: 1.4.0
   resolution: "loose-envify@npm:1.4.0"
   dependencies:
@@ -11418,7 +11469,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prop-types@npm:^15.8.1":
+"prop-types@npm:^15.5.6, prop-types@npm:^15.8.1":
   version: 15.8.1
   resolution: "prop-types@npm:15.8.1"
   dependencies:
@@ -11527,6 +11578,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"react-addons-css-transition-group@npm:^15.6.2":
+  version: 15.6.2
+  resolution: "react-addons-css-transition-group@npm:15.6.2"
+  dependencies:
+    react-transition-group: ^1.2.0
+  peerDependencies:
+    react: ^15.4.2
+  checksum: 232065ff7f574b2b99991ce5057fcf075579a5b8d8ca96ee50a837f45149cbf9af2cbe5e321e8eff39d545ba06df0262db3a57a2aa5d47dab69978dbadfcdc30
+  languageName: node
+  linkType: hard
+
 "react-app-polyfill@npm:^3.0.0":
   version: 3.0.0
   resolution: "react-app-polyfill@npm:3.0.0"
@@ -11552,6 +11614,7 @@ __metadata:
     "@types/jest": ^29.0.3
     "@types/node": ^18.7.18
     "@types/react": ^18.0.20
+    "@types/react-addons-css-transition-group": ^15.0.7
     "@types/react-dom": ^18.0.6
     "@types/react-router-dom": ^5.3.3
     "@typescript-eslint/eslint-plugin": ^5.39.0
@@ -11569,6 +11632,7 @@ __metadata:
     postcss: ^8.4.16
     prettier: ^2.7.1
     react: ^18.2.0
+    react-addons-css-transition-group: ^15.6.2
     react-dom: ^18.2.0
     react-error-boundary: ^3.1.4
     react-router-dom: 6
@@ -11782,6 +11846,22 @@ __metadata:
   bin:
     react-scripts: bin/react-scripts.js
   checksum: 92afa2f245c7092ccc97d5609dc7a2130616262e34da7f15072d9442e2d2e1d4909a91022abd1faac1336eb17c5525a10d9bd43e1ae374c7ec941ca20addca68
+  languageName: node
+  linkType: hard
+
+"react-transition-group@npm:^1.2.0":
+  version: 1.2.1
+  resolution: "react-transition-group@npm:1.2.1"
+  dependencies:
+    chain-function: ^1.0.0
+    dom-helpers: ^3.2.0
+    loose-envify: ^1.3.1
+    prop-types: ^15.5.6
+    warning: ^3.0.0
+  peerDependencies:
+    react: ^15.0.0 || ^16.0.0
+    react-dom: ^15.0.0 || ^16.0.0
+  checksum: a0b98d07b7295f07464a75ee2ead944efdf37e1b74638528b2af26045f345a6c334afb93f42cb7aa262c0b36c7a74777632467e49eebc4fd771be7c2eec4a462
   languageName: node
   linkType: hard
 
@@ -13680,6 +13760,15 @@ __metadata:
   dependencies:
     makeerror: 1.0.12
   checksum: ad7a257ea1e662e57ef2e018f97b3c02a7240ad5093c392186ce0bcf1f1a60bbadd520d073b9beb921ed99f64f065efb63dfc8eec689a80e569f93c1c5d5e16c
+  languageName: node
+  linkType: hard
+
+"warning@npm:^3.0.0":
+  version: 3.0.0
+  resolution: "warning@npm:3.0.0"
+  dependencies:
+    loose-envify: ^1.0.0
+  checksum: c9f99a12803aab81b29858e7dc3415bf98b41baee3a4c3acdeb680d98c47b6e17490f1087dccc54432deed5711a5ce0ebcda2b27e9b5eb054c32ae50acb4419c
   languageName: node
   linkType: hard
 

@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Lobster&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -6,13 +7,7 @@
   body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    background-color: #f8fafc; /* slate-50 */
     color: #111827; /* gray-900 */
-  }
-
-  .dark body {
-    background-color: #1e293b; /* slate-800 */
-    color: #fff;
   }
 
   #all-container header nav,
@@ -32,11 +27,63 @@
 /* some overrides */
 
 .indiana-scroll-container {
-  border-radius: 0; /* remove border radius from flowbite carousel */
+  border-radius: 0; /* remove border radius from flowbite Carousel */
+}
+
+#testimonial-card > div {
+  height: 100%; /* make flowbite Card to take 100% height */
 }
 
 .product-card img {
   padding: 0.625rem;
+}
+
+/* Header CSS */
+#header button {
+  color: white;
+}
+
+#header button:hover {
+  background: none;
+}
+
+#header li > a {
+  font-size: 1rem; /* text-base */
+  font-weight: 600;
+}
+
+#header li > a:not(.active) {
+  color: white;
+}
+
+@media (max-width: 767px) {
+  #header li > a:hover:not(.active) {
+    background: theme("colors.list-bg");
+  }
+
+  /* Product Categories CSS */
+  .category-container {
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: repeat(6, 30%);
+    grid-template-rows: 1fr;
+    overflow-x: scroll;
+    scroll-snap-type: x proximity;
+    padding-bottom: calc(0.75 * 20px);
+    margin-bottom: calc(-0.25 * 20px);
+  }
+
+  .category-button {
+    scroll-snap-align: center;
+  }
+}
+
+.category-button {
+  transition: 0.25s ease-out all;
+}
+
+.category-button:active {
+  transform: scale(0.95);
 }
 
 /* Product Card CSS */
@@ -60,4 +107,34 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+/* Testimonial Carousel Overrides */
+#newsletter-testimonial [data-testid="flowbite-card"] {
+  height: 100%;
+}
+
+/* CSS Transition for Product Cards */
+.fade {
+  transition: all 0.2s ease-in-out;
+}
+.fade-enter {
+  opacity: 0.01;
+}
+.fade-enter.fade-enter-active {
+  opacity: 1;
+  transition: opacity 500ms ease-in;
+}
+.fade-leave {
+  opacity: 1;
+}
+.fade-leave.fade-leave-active {
+  opacity: 0.01;
+  transition: opacity 300ms ease-in;
+}
+
+/* Cursor Pointer on Search Input */
+input[type="search"]::-webkit-search-decoration:hover,
+input[type="search"]::-webkit-search-cancel-button:hover {
+  cursor: pointer;
 }

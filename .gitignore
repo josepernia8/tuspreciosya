@@ -23,4 +23,6 @@ yarn-debug.log*
 yarn-error.log*
 
 .pnp.*
-.yarn/*
+.yarn/cache
+.yarn/unplugged
+.yarn/install-state.gz

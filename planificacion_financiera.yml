@@ -1,0 +1,21 @@
+- Educacion financiera
+- Planificacion financiera:
+    - Selector de Mes
+    - Balance Total el cual se actualiza en una de las siguientes 4 operaciones:
+        - Ingresos
+        - Gastos
+        - Ahorros
+        - Tarjetas
+    - Generar un resumen de las operaciones en el mes con lo siguiente:
+        - Ingresos/Egresos:
+            - Tipo
+            - Tipo de Gastos
+            - dia
+            - mes
+            - año
+            - detalle
+            - categoria
+            - presupuesto
+            - monto
+        - Tarjetas:
+            - ...

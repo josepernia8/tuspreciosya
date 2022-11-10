@@ -2385,7 +2385,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@popperjs/core@npm:^2.9.3":
+"@popperjs/core@npm:^2.9.2, @popperjs/core@npm:^2.9.3":
   version: 2.11.6
   resolution: "@popperjs/core@npm:2.11.6"
   checksum: 47fb328cec1924559d759b48235c78574f2d71a8a6c4c03edb6de5d7074078371633b91e39bbf3f901b32aa8af9b9d8f82834856d2f5737a23475036b16817f0
@@ -3082,6 +3082,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/react-datepicker@npm:^4.8.0":
+  version: 4.8.0
+  resolution: "@types/react-datepicker@npm:4.8.0"
+  dependencies:
+    "@popperjs/core": ^2.9.2
+    "@types/react": "*"
+    date-fns: ^2.0.1
+    react-popper: ^2.2.5
+  checksum: 4404d6bd277ee5cef0f698439ed057340a29595fb289c7f2278386c0149e7defc1e8a2634a7371495722595cd8d9149d1c132d2b0711cd7fb2554515b798de65
+  languageName: node
+  linkType: hard
+
 "@types/react-dom@npm:^18.0.0, @types/react-dom@npm:^18.0.6":
   version: 18.0.6
   resolution: "@types/react-dom@npm:18.0.6"
@@ -3112,21 +3124,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:*, @types/react@npm:^18.0.20":
-  version: 18.0.21
-  resolution: "@types/react@npm:18.0.21"
+"@types/react@npm:17.0.44":
+  version: 17.0.44
+  resolution: "@types/react@npm:17.0.44"
   dependencies:
     "@types/prop-types": "*"
     "@types/scheduler": "*"
     csstype: ^3.0.2
-  checksum: 36c1a7c9d507e81e2e629c1ad3db51d7b84d8b010c2d5008da411874286c6a5ccc711ae1d4c470efc0bdc77153cc8804a40e927e929e5164c669ca41b84b846d
-  languageName: node
-  linkType: hard
-
-"@types/react@npm:^15":
-  version: 15.7.10
-  resolution: "@types/react@npm:15.7.10"
-  checksum: 095994000d47dfd058a798407ec365948ecdc4f2052d657f8e15bec3c33610291653c61f8212881b0043212f301aa185d13b641424bb6dc650fca4f39e6c9aa3
+  checksum: ebee02778ca08f954c316dc907802264e0121c87b8fa2e7e0156ab0ef2a1b0a09d968c016a3600ec4c9a17dc09b4274f292d9b15a1a5369bb7e4072def82808f
   languageName: node
   linkType: hard
 
@@ -5437,6 +5442,13 @@ __metadata:
     whatwg-mimetype: ^2.3.0
     whatwg-url: ^8.0.0
   checksum: 97caf828aac25e25e04ba6869db0f99c75e6859bb5b424ada28d3e7841941ebf08ddff3c1b1bb4585986bd507a5d54c2a716853ea6cb98af877400e637393e71
+  languageName: node
+  linkType: hard
+
+"date-fns@npm:^2.0.1, date-fns@npm:^2.24.0":
+  version: 2.29.3
+  resolution: "date-fns@npm:2.29.3"
+  checksum: e01cf5b62af04e05dfff921bb9c9933310ed0e1ae9a81eb8653452e64dc841acf7f6e01e1a5ae5644d0337e9a7f936175fd2cb6819dc122fdd9c5e86c56be484
   languageName: node
   linkType: hard
 
@@ -11171,6 +11183,7 @@ __metadata:
     "@types/node": ^18.7.18
     "@types/react": ^18.0.20
     "@types/react-addons-css-transition-group": ^15.0.7
+    "@types/react-datepicker": ^4.8.0
     "@types/react-dom": ^18.0.6
     "@types/react-router-dom": ^5.3.3
     "@typescript-eslint/eslint-plugin": ^5.39.0
@@ -11189,6 +11202,7 @@ __metadata:
     prettier: ^2.7.1
     react: ^18.2.0
     react-addons-css-transition-group: ^15.6.2
+    react-datepicker: ^4.8.0
     react-dom: ^18.2.0
     react-error-boundary: ^3.1.4
     react-router-dom: 6
@@ -11328,7 +11342,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prop-types@npm:^15.5.6, prop-types@npm:^15.8.1":
+"prop-types@npm:^15.5.6, prop-types@npm:^15.7.2, prop-types@npm:^15.8.1":
   version: 15.8.1
   resolution: "prop-types@npm:15.8.1"
   dependencies:
@@ -11462,6 +11476,23 @@ __metadata:
   languageName: node
   linkType: hard
 
+"react-datepicker@npm:^4.8.0":
+  version: 4.8.0
+  resolution: "react-datepicker@npm:4.8.0"
+  dependencies:
+    "@popperjs/core": ^2.9.2
+    classnames: ^2.2.6
+    date-fns: ^2.24.0
+    prop-types: ^15.7.2
+    react-onclickoutside: ^6.12.0
+    react-popper: ^2.2.5
+  peerDependencies:
+    react: ^16.9.0 || ^17 || ^18
+    react-dom: ^16.9.0 || ^17 || ^18
+  checksum: d31a1002c5c6220fd8a5201f3a71015ac09b003d71f59ebc6fc0f9c452268f924f0244e69c223f64763ebb2131031ce5e792872631bfb364c34b8ea730258e6c
+  languageName: node
+  linkType: hard
+
 "react-dev-utils@npm:^12.0.1":
   version: 12.0.1
   resolution: "react-dev-utils@npm:12.0.1"
@@ -11524,6 +11555,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"react-fast-compare@npm:^3.0.1":
+  version: 3.2.0
+  resolution: "react-fast-compare@npm:3.2.0"
+  checksum: 8ef272c825ae329f61633ce4ce7f15aa5b84e5214d88bc0823880236e03e985a13195befa2c7a4eda7db3b017dc7985729152d88445823f652403cf36c2b86aa
+  languageName: node
+  linkType: hard
+
 "react-icons@npm:^4.4.0":
   version: 4.6.0
   resolution: "react-icons@npm:4.6.0"
@@ -11565,6 +11603,30 @@ __metadata:
   version: 18.2.0
   resolution: "react-is@npm:18.2.0"
   checksum: e72d0ba81b5922759e4aff17e0252bd29988f9642ed817f56b25a3e217e13eea8a7f2322af99a06edb779da12d5d636e9fda473d620df9a3da0df2a74141d53e
+  languageName: node
+  linkType: hard
+
+"react-onclickoutside@npm:^6.12.0":
+  version: 6.12.2
+  resolution: "react-onclickoutside@npm:6.12.2"
+  peerDependencies:
+    react: ^15.5.x || ^16.x || ^17.x || ^18.x
+    react-dom: ^15.5.x || ^16.x || ^17.x || ^18.x
+  checksum: a0c7f4fbcf84e00d50b3fc18208e5fdc4e97b17daf910f176659e079038a560d2e299955804d20e6ca2bf375404d03fdb865dc7f5f85cab3e60b493be4375e77
+  languageName: node
+  linkType: hard
+
+"react-popper@npm:^2.2.5":
+  version: 2.3.0
+  resolution: "react-popper@npm:2.3.0"
+  dependencies:
+    react-fast-compare: ^3.0.1
+    warning: ^4.0.2
+  peerDependencies:
+    "@popperjs/core": ^2.0.0
+    react: ^16.8.0 || ^17 || ^18
+    react-dom: ^16.8.0 || ^17 || ^18
+  checksum: 837111c98738011c69b3069a464ea5bdcbf487105b6148e8faf90cb7337e134edb1b98b8824322941c378756cca30a15c18c25f558e53b85ed5762fa0dc8e6b2
   languageName: node
   linkType: hard
 
@@ -13597,6 +13659,15 @@ __metadata:
   dependencies:
     loose-envify: ^1.0.0
   checksum: c9f99a12803aab81b29858e7dc3415bf98b41baee3a4c3acdeb680d98c47b6e17490f1087dccc54432deed5711a5ce0ebcda2b27e9b5eb054c32ae50acb4419c
+  languageName: node
+  linkType: hard
+
+"warning@npm:^4.0.2":
+  version: 4.0.3
+  resolution: "warning@npm:4.0.3"
+  dependencies:
+    loose-envify: ^1.0.0
+  checksum: 4f2cb6a9575e4faf71ddad9ad1ae7a00d0a75d24521c193fa464f30e6b04027bd97aa5d9546b0e13d3a150ab402eda216d59c1d0f2d6ca60124d96cd40dfa35c
   languageName: node
   linkType: hard
 

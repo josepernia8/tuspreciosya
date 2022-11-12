@@ -7,8 +7,10 @@ import {FaPlusSquare, FaTimesCircle} from "react-icons/fa"
 import constants from "../../constants"
 import useBalance from "../../hooks/useBalance"
 import {usePersistedState} from "../../hooks/usePersist"
+import {BalanceReducer} from "../../types"
 import currency from "../../utils/currency"
 import getMonthYearString from "../../utils/date"
+import {getEmptyMonthState} from "../../utils/state"
 
 // Change locale of Date Picker from en-US to spanish
 ReactDatePicker.registerLocale("es", es)
@@ -16,21 +18,20 @@ ReactDatePicker.registerLocale("es", es)
 const initialDate = new Date()
 
 const FinancialPlan: React.FC = () => {
-  // useState variables
+  // State methods
   const [modalOpen, setModalOpen] = useState<boolean>(false)
-  const [modalValue, setModalValue] = useState<number>(0)
+  const [modalValue, setModalValue] = useState<string>("")
   const [type, setType] = useState<{main: string; sub: string}>({main: "", sub: ""})
-  const [currentDate, setCurrentDate] = useState<Date>(initialDate)
 
   // Get State from Local Storage
-  const initialState = usePersistedState()
+  const initialState = usePersistedState({key: "financial"})
 
   // Application State (balance & operations)
-  const {state, dispatch} = useBalance(initialState)
+  const {state, dispatch} = useBalance(initialState) as BalanceReducer
 
-  // Current state displayed
-  const dateIndex = getMonthYearString(currentDate)
-  const current = state[dateIndex]
+  // State methods related to current month
+  const [currentDate, setCurrentDate] = useState<Date>(initialDate)
+  const current = state[getMonthYearString(currentDate)] || getEmptyMonthState(currentDate)
 
   // Event handlers
   const operationAdd = (opType: string, opSubType: string) => {
@@ -40,13 +41,29 @@ const FinancialPlan: React.FC = () => {
 
   const modalClose = () => {
     setModalOpen(false)
-    setModalValue(0)
+    setModalValue("")
     setType({main: "", sub: ""})
   }
 
   const modalApply = () => {
-    dispatch({type: type.main, payload: {selected: dateIndex, amount: modalValue, type: type.sub}})
-    modalClose()
+    if (modalValue !== ".") {
+      if (modalValue) {
+        dispatch({
+          type: type.main,
+          payload: {selected: getMonthYearString(currentDate), amount: Number(modalValue), type: type.sub}
+        })
+      }
+      modalClose()
+    }
+  }
+
+  const handleModalInput = (value: string) => {
+    const val = value
+      .replace(/[^0-9.]/g, "")
+      .replace(/(\..*?)\..*/g, "$1")
+      .replace(/^0[^.]/, "0")
+
+    setModalValue(val)
   }
 
   const modalKeyUp = (event: KeyboardEvent<HTMLInputElement>) => {
@@ -120,11 +137,11 @@ const FinancialPlan: React.FC = () => {
           <div className="text-center flex flex-col items-center justify-center gap-6 px-14 mb-12">
             <h1 className="mb-5 text-2xl font-semibold">Introduce el monto</h1>
             <input
-              type="number"
+              type="text"
               className="rounded"
               placeholder="0.00"
               value={modalValue}
-              onChange={(e) => setModalValue(Number(e.target.value))}
+              onChange={({currentTarget: {value}}) => handleModalInput(value)}
               onKeyUp={modalKeyUp}
             />
             <Button pill onClick={modalApply}>

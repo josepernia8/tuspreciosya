@@ -2,16 +2,36 @@ import {Card, Carousel} from "flowbite-react"
 import {useState} from "react"
 import ReactCSSTransitionGroup from "react-addons-css-transition-group"
 import {CgChevronLeftO, CgChevronRightO, CgSearch} from "react-icons/cg"
+import {FaCartPlus} from "react-icons/fa"
 import {categories, products, testimonies} from "../assets/fixtures"
 import banner1 from "../assets/home_banner_1.png"
 import banner2 from "../assets/home_banner_2.png"
 import banner3 from "../assets/home_banner_3.png"
 import newsletter from "../assets/newsletter.jpg"
-import {Categories} from "../types"
+import {usePersistedState} from "../hooks/usePersist"
+import useShoppingList from "../hooks/useShoppingList"
+import {Categories, Product, ShoppingListReducer} from "../types"
 
 const Home: React.FC = () => {
   const [category, setCategory] = useState(Categories.DAIRY)
+  const [toast, setToast] = useState(false)
   const [term, setTerm] = useState("")
+
+  // Get State from Local Storage
+  const initialState = usePersistedState({key: "shopping-list"})
+
+  // Application State Shopping List
+  const {dispatch} = useShoppingList(initialState) as ShoppingListReducer
+
+  const productAdd = (product: Product) => {
+    dispatch({
+      type: "add",
+      payload: {product}
+    })
+
+    setToast(true)
+    setTimeout(() => setToast(false), 1300)
+  }
 
   return (
     <>
@@ -65,7 +85,7 @@ const Home: React.FC = () => {
 
         <section className="grid grid-cols-12 gap-4 mb-10">
           {/* Search Bar */}
-          <div className="col-span-full md:col-span-6 md:col-start-4">
+          <div className="col-span-full md:col-span-6 md:col-start-4 relative">
             <div className="relative">
               <div className="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
                 <CgSearch />
@@ -77,6 +97,15 @@ const Home: React.FC = () => {
                 placeholder="Busca un producto..."
                 onChange={(e) => setTerm(e.target.value)}
               />
+            </div>
+            <div
+              id="toaster"
+              className={`
+                font-lobster fixed right-5 bg-green-400 text-white p-2 rounded-xl select-none z-10
+                animate-pulse ${toast ? "block" : "hidden"}
+              `}
+            >
+              Product Agregado...
             </div>
           </div>
 
@@ -90,7 +119,7 @@ const Home: React.FC = () => {
             {products
               .filter(({cat, label}) => category === cat && (cat.includes(term) || label.includes(term) || term === ""))
               .map(({id, image, label, prices}) => (
-                <div key={id} className="divide-y col-span-2 md:col-span-1">
+                <div key={id} className="divide-y col-span-2 md:col-span-1 relative">
                   <Card imgSrc={image} imgAlt={label}>
                     <div className="flex flex-col items-start border-t pt-2 tracking-wide">
                       {prices.map(({type, value}) => (
@@ -101,6 +130,9 @@ const Home: React.FC = () => {
                       ))}
                     </div>
                   </Card>
+                  <button className="absolute bottom-3 right-3" onClick={() => productAdd({id, image, label, prices})}>
+                    <FaCartPlus className="h-5 w-5 text-amber-400" />
+                  </button>
                 </div>
               ))}
           </ReactCSSTransitionGroup>

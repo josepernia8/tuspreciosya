@@ -1,22 +1,26 @@
 import {Dispatch, useEffect} from "react"
-import {Action, State} from "../types"
-import getMonthYearString from "../utils/date"
+import {BalanceAction, BalanceState, ShoppingListAction, ShoppingListState} from "../types"
+import {getEmptyFinancialState} from "../utils/state"
 
-export function usePersistedState() {
-  const persistedState = localStorage.getItem("state")
+export function usePersistedState({key}: {key: string}) {
+  const persistedState = localStorage.getItem(key)
 
   if (persistedState) {
     return JSON.parse(persistedState)
   }
 
-  const initialState: State = {}
-  initialState[getMonthYearString(new Date())] = {balance: 0.0, operations: []}
-
-  return initialState
+  if (key === "financial") return getEmptyFinancialState()
+  if (key === "shopping-list") return []
 }
 
-export function usePersistedReducer([state, dispatch]: [State, Dispatch<Action>]) {
-  useEffect(() => localStorage.setItem("state", JSON.stringify(state)), [state])
+export function usePersistedReducer({
+  key,
+  reducer: [state, dispatch]
+}: {
+  key: string
+  reducer: [BalanceState, Dispatch<BalanceAction>] | [ShoppingListState, Dispatch<ShoppingListAction>]
+}) {
+  useEffect(() => localStorage.setItem(key, JSON.stringify(state)), [key, state])
 
   return {state, dispatch}
 }

@@ -1,9 +1,9 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
 import {useReducer} from "react"
-import {Action, State} from "../types"
+import {BalanceAction, BalanceState} from "../types"
 import {usePersistedReducer} from "./usePersist"
 
-function reducer(state: State, action: Action) {
+function reducer(state: BalanceState, action: BalanceAction) {
   const {
     payload: {selected, amount, type}
   } = action
@@ -25,6 +25,6 @@ function reducer(state: State, action: Action) {
   return stateClone
 }
 
-export default function useBalance(initialState: State) {
-  return usePersistedReducer(useReducer(reducer, initialState))
+export default function useBalance(initialState: BalanceState) {
+  return usePersistedReducer({key: "financial", reducer: useReducer(reducer, initialState)})
 }

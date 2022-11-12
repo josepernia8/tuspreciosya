@@ -8,6 +8,7 @@ const Home = lazy(() => import(/* webpackChunkName: "home" */ "./pages/Home"))
 const About = lazy(() => import(/* webpackChunkName: "about" */ "./pages/About"))
 const Contact = lazy(() => import(/* webpackChunkName: "contact" */ "./pages/Contact"))
 const FinancialPlanning = lazy(() => import(/* webpackChunkName: "financialPlanning" */ "./pages/FinancialPlanning"))
+const ShoppingList = lazy(() => import(/* webpackChunkName: "ShoppingList" */ "./pages/ShoppingList"))
 
 function App(): React.ReactElement {
   return (
@@ -19,6 +20,7 @@ function App(): React.ReactElement {
           <Route path="about" element={<About />} />
           <Route path="contact" element={<Contact />} />
           <Route path="financial-planning" element={<FinancialPlanning />} />
+          <Route path="shopping-list" element={<ShoppingList />} />
           <Route path="services" element={<div className="text-center text-4xl">Under Construction...</div>} />
         </Routes>
       </Suspense>

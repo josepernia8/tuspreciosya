@@ -138,3 +138,13 @@ input[type="search"]::-webkit-search-decoration:hover,
 input[type="search"]::-webkit-search-cancel-button:hover {
   cursor: pointer;
 }
+
+/* Overide Flowbite Accordion Css */
+[data-testid="flowbite-accordion"] button {
+  background: #c084fc;
+  color: white;
+}
+
+[data-testid="flowbite-accordion"] button:hover {
+  color: #6b7280;
+}

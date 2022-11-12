@@ -1,25 +1,14 @@
-import {Link} from "react-router-dom"
-
 const About: React.FC = () => (
-  <main className="mb-auto mt-5">
-    <div className="px-10 flex flex-col gap-12">
-      <section>
-        <p className="text-justify mb-3">
-          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-          industry&apos;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
-          scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into
-          electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of
-          Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus
-          PageMaker including versions of Lorem Ipsum.
-        </p>
-        <p>
-          Si necesitas contactarnos as click{" "}
-          <Link to="/contact" className="underline">
-            aqui
-          </Link>
-        </p>
-      </section>
-    </div>
+  <main className="p-10 mb-auto">
+    <h1 className="font-lobster tracking-wider text-lg mb-5">Quienes Somos</h1>
+    <p className="text-justify mb-3">
+      Somos un grupo de estudiantes del Diplomado de Gobernabilidad e Innovación Pública de la CAF y la UCAB que desea
+      generar una aplicación móvil e interactiva que permita el acceso a precios referenciales de los productos que
+      ofrecen los supermercados y mercados municipales; a la vez que se establece un programa educativo denominado
+      “¿Cómo comprar mejor?” que permita decidir entre calidad y precio en el marco de una política de datos abiertos.
+      Por otro lado, se buscan mejoras en la calidad y precio de los productos de la Cesta Básica a través de una
+      competencia sana entre comerciantes y/o proveedores.
+    </p>
   </main>
 )
 

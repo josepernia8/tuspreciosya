@@ -111,7 +111,7 @@ const Home: React.FC = () => {
 
           {/* Product Cards */}
           <ReactCSSTransitionGroup
-            className="col-span-full grid grid-cols-4 xl:grid-cols-8 gap-4 min-h-[200px]"
+            className="col-span-full grid grid-cols-4 xl:grid-cols-6 gap-4 min-h-[200px]"
             transitionName="fade"
             transitionEnterTimeout={500}
             transitionLeaveTimeout={300}
@@ -123,7 +123,7 @@ const Home: React.FC = () => {
                   <Card imgSrc={image} imgAlt={label}>
                     <div className="flex flex-col items-start border-t pt-2 tracking-wide">
                       {prices.map(({type, value}) => (
-                        <p key={type}>
+                        <p key={type} className="text-xs lg:text-sm xl:text-base">
                           <span className={`${type === "cm" ? "uppercase" : "capitalize"}`}>{type}:</span>{" "}
                           <span className="tracking-wider">#{value}</span>
                         </p>
@@ -143,7 +143,7 @@ const Home: React.FC = () => {
         {/* Testimonial & Newsletter */}
         <section id="newsletter-testimonial" className="w-full grid grid-cols-4 auto-rows-[400px] gap-4">
           <div className="col-span-full lg:col-span-1">
-            <p className="text-lg underline decoration-wavy decoration-broad">Testimonios</p>
+            <p className="text-lg underline decoration-wavy decoration-broad underline-offset-2">Testimonios</p>
             <Carousel>
               {testimonies.map(({id, name, testimony}) => (
                 <Card key={id}>

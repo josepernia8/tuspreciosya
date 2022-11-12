@@ -34,7 +34,7 @@ const ShoppingList: React.FC = () => {
               <Card imgSrc={image} imgAlt={label}>
                 <div className="flex flex-col items-start border-t pt-2 tracking-wide">
                   {prices?.map(({type, value}) => (
-                    <p key={type}>
+                    <p key={type} className="text-xs lg:text-sm xl:text-base">
                       <span className={`${type === "cm" ? "uppercase" : "capitalize"}`}>{type}:</span>{" "}
                       <span className="tracking-wider">#{value}</span>
                     </p>

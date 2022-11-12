@@ -3,7 +3,7 @@ import Academic from "../components/Academic"
 import FinancialPlan from "../components/FinancialPlan"
 
 const FinancialPlanning: React.FC = () => (
-  <main className="mt-1 mx-10 md:mx-20 mb-auto">
+  <main className="mt-1 mx-5 md:mx-20 mb-auto">
     <Tabs.Group aria-label="Pestañas de planificación" style="underline">
       <Tabs.Item title="Planificacion" active>
         <FinancialPlan />

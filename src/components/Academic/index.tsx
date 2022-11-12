@@ -1,5 +1,5 @@
 import {Link} from "react-router-dom"
-import finance from "../../assets/finance.jpg"
+import finance from "../../assets/finance-banner_20.jpg"
 
 const Academic: React.FC = () => (
   <>
@@ -8,7 +8,7 @@ const Academic: React.FC = () => (
     {[1, 2, 3].map((val) => (
       <Link key={val} to="/financial-planning/1">
         <div className="mt-5 flex rounded border border-solid border-gray-300 shadow-md cursor-pointer">
-          <img src={finance} width={120} className="aspect-square" />
+          <img src={finance} width={120} className="" />
           <div className="p-2">
             <div className="w-fit text-[0.5rem] bg-purple-500 text-white font-semibold rounded-lg py-[2px] px-1">
               CURSO GRATIS

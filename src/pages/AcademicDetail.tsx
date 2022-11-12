@@ -89,16 +89,10 @@ const Academic: React.FC = () => {
           <Accordion.Content>
             <div className="flex flex-col gap-4 text-sm">
               <p className="text-justify">
-                Probablemente has escuchado acerca de “la magia del interés compuesto” y cómo este puede ayudarte a que
-                tu dinero trabaje para ti. La capitalización consiste en la reinversión de las ganancias que obtienes
-                como inversor, cuanto más tiempo dediques a reinvertir tus ganancias mayor será el valor de tu inversión
-                en un futuro. Para ello es aconsejable que tu horizonte de inversión sea de largo plazo, por lo tanto
-                mientras más temprano comiences a hacerlo mejor.
-              </p>
-              <p className="text-justify">
-                Si no estás familiarizado con el tema de las inversiones puedes buscar un asesor que te guíe en el
-                proceso, esta misma persona puede explicarte los diferentes tipos de activos en los que puedes invertir
-                y ayudarte a identificar tu perfil de riesgo.
+                La capitalización consiste en la reinversión de las ganancias que obtienes como inversor, cuanto más
+                tiempo dediques a reinvertir tus ganancias mayor será el valor de tu inversión en un futuro. Para ello
+                es aconsejable que tu horizonte de inversión sea de largo plazo, por lo tanto mientras más temprano
+                comiences a hacerlo mejor.
               </p>
             </div>
           </Accordion.Content>
@@ -110,9 +104,7 @@ const Academic: React.FC = () => {
               <p className="text-justify">
                 Todos estamos expuestos a imprevistos, a situaciones que se salen de nuestro control, emergencias
                 médicas, accidentes, o cualquier evento inesperado que amerite una salida importante de dinero. Por ello
-                es recomendable construir un fondo de emergencia para este tipo de situaciones. Lo tradicional es
-                ahorrar seis meses de gastos de manutención, y aunque este número podría quedarse pequeño ante el
-                entorno económico actual es de vital importancia disponer de esta reserva de dinero.
+                es recomendable construir un fondo de emergencia para este tipo de situaciones.
               </p>
             </div>
           </Accordion.Content>
